@@ -1,13 +1,14 @@
-package com.collections_using_something_else_changed_from_arraylist;
+package com.collections_and_builtin_binary_search;
 
 //import java.util.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Theatre {
 	private final String theatreName;
-	private List<Seat> seats = new ArrayList<>();
+	//	private Collection<Seat> seats = new HashSet<>();  //Seats displayed out of order
+//	private Collection<Seat> seats = new LinkedList<>();  //In order
+	private List<Seat> seats = new ArrayList<>(); //in order
 	private int numRows;
 	private int seatsPerRow;
 
@@ -30,8 +31,15 @@ public class Theatre {
 	}
 
 	public boolean reserveSeat(String seatNumber) {
-		Seat requestedSeat = null;
-		for (Seat seat : seats) {
+		Seat requestedSeat = new Seat(seatNumber);
+		int foundSeat = Collections.binarySearch(seats, requestedSeat, null);
+		if(foundSeat>=0) {
+			return seats.get(foundSeat).reserve();
+		} else {
+			System.out.println("There is no seat " + seatNumber);
+			return false;
+		}
+		/*for (Seat seat : seats) {
 			if (seat.getSeatNumber().equals(seatNumber)) {
 				requestedSeat = seat;
 				break;
@@ -41,7 +49,7 @@ public class Theatre {
 			System.out.println("There is no seat " + seatNumber);
 			return false;
 		}
-		return requestedSeat.reserve();
+		return requestedSeat.reserve();*/   //Commented out linear search section in favor of binary search
 	}
 
 	public void getSeat() {  //This is not a getter
@@ -50,11 +58,11 @@ public class Theatre {
 		}
 	}
 
-	public void getSeatsRepresentation() {
-		for (int i = 1; i <= seats.size(); i++) {
-			System.out.print(seats.get(i - 1).getSeatNumber()+ " ");
-			if (i % seatsPerRow == 0)
-				System.out.println();
-		}
-	}
+//	public void getSeatsRepresentation() {
+//		for (int i = 1; i <= seats.size(); i++) {
+//			System.out.print(seats.get(i - 1).getSeatNumber()+ " ");
+//			if (i % seatsPerRow == 0)
+//				System.out.println();
+//		}
+//	}
 }

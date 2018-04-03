@@ -1,6 +1,6 @@
-package com.collections_using_something_else_changed_from_arraylist;
+package com.collections_and_builtin_binary_search;
 
-public class Seat {
+public class Seat implements Comparable<Seat> {
 	private final String seatNumber;
 	private boolean reserved = false;
 
@@ -9,7 +9,7 @@ public class Seat {
 	}
 
 	public boolean reserve() {
-		if(!this.reserved) {
+		if (!this.reserved) {
 			this.reserved = true;
 			System.out.println("Seat " + seatNumber + " reserved");
 			return true;
@@ -19,7 +19,7 @@ public class Seat {
 	}
 
 	public boolean cancel() {
-		if(this.reserved) {
+		if (this.reserved) {
 			this.reserved = false;
 			System.out.println("Reservation for " + seatNumber + " is cancelled");
 			return true;
@@ -30,5 +30,10 @@ public class Seat {
 
 	public String getSeatNumber() {
 		return seatNumber;
+	}
+
+	@Override
+	public int compareTo(Seat seat) {
+		return this.seatNumber.compareToIgnoreCase(seat.getSeatNumber());
 	}
 }
