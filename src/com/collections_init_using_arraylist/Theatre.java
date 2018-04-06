@@ -22,7 +22,6 @@ public class Theatre {
 				seats.add(seat);
 			}
 		}
-
 	}
 
 	public String getTheatreName() {
