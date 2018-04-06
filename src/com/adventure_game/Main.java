@@ -16,6 +16,10 @@ public class Main {
 		locations.put(4, new Location(4, "You are in a valley beside a stream"));
 		locations.put(5, new Location(5, "You are in the forest"));
 
+//		for(Integer key: locations.keySet()) {
+//			System.out.println(key+ " : "+ locations.get(key).getDescription());
+//		} // to print all key:value
+
 		int loc = 1;
 		while (true) {
 			System.out.println(locations.get(loc).getDescription());
@@ -29,3 +33,6 @@ public class Main {
 		}
 	}
 }
+
+
+//Some logic incomplete. Will come back if I have time after the exam
