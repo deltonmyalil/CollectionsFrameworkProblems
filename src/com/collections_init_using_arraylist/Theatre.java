@@ -1,7 +1,5 @@
 package com.collections_init_using_arraylist;
 
-//import java.util.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
