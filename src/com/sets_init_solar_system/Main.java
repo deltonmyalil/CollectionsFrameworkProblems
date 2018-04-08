@@ -99,5 +99,12 @@ public class Main {
 		for (HeavenlyBody moon : moons) {
 			System.out.println("\t" + moon.getName());
 		}
+
+		HeavenlyBody pluto = new HeavenlyBody("Pluto",842);
+		planets.add(pluto); // this adds another pluto to the planets set. Note that the two plutos are not the same object despite the name
+
+		for (HeavenlyBody planet: planets) {
+			System.out.println(planet.getName()+ " : " + planet.getOrbitalPeriod());
+		}
 	}
 }
