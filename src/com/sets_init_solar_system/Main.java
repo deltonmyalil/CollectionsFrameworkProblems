@@ -6,8 +6,8 @@ import java.util.Map;
 import java.util.Set;
 
 public class Main {
-	private static Map<String, HeavenlyBody> solarSystem = new HashMap<>();
-	private static Set<HeavenlyBody> planets = new HashSet<>();
+	private static Map<String, HeavenlyBody> solarSystem = new HashMap<>();  //Replace with LinkedHashMap to preserve order of insertion
+	private static Set<HeavenlyBody> planets = new HashSet<>();  //Replace with LinkedHashSet to preserve order of insertion
 
 	public static void main(String[] args) {
 		HeavenlyBody temp = new HeavenlyBody("Mercury", 88);
@@ -100,11 +100,11 @@ public class Main {
 			System.out.println("\t" + moon.getName());
 		}
 
-		HeavenlyBody pluto = new HeavenlyBody("Pluto",842);
+		HeavenlyBody pluto = new HeavenlyBody("Pluto", 842);
 		planets.add(pluto); // this adds another pluto to the planets set. Note that the two plutos are not the same object despite the name
 
-		for (HeavenlyBody planet: planets) {
-			System.out.println(planet.getName()+ " : " + planet.getOrbitalPeriod());
+		for (HeavenlyBody planet : planets) {
+			System.out.println(planet.getName() + " : " + planet.getOrbitalPeriod());
 		}
 	}
 }
